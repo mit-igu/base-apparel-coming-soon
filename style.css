@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400;600&display=swap');
+:root {
+    --desaturatedRed: hsl(0, 36%, 70%);
+    --softRed: hsl(0, 93%, 68%);
+    --darkGrayishRed: hsl(0, 6%, 24%);
+    --input: hsl(0, 74%, 74%);
+    --inputSecondary: hsl(0, 80%, 86%);
+    --submitBackground: linear-gradient(-45deg, var(--input), var(--inputSecondary) 70%);
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.allGrid {
+    display: grid;
+    grid-template: repeat(3, auto) / auto;
+    max-width: 450px;
+    margin: auto;
+}
+
+header {
+    padding: 30px;
+}
+
+header img {
+    width: 120px;
+}
+
+.hero img {
+    width: 100%;
+    object-fit: cover;
+}
+
+main {
+    padding-top: 50px;
+    color: var(--desaturatedRed);
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+}
+
+.mainContent {
+    position: relative;
+    max-width: 90%;
+    margin: auto;
+}
+
+.mainContent h1 {
+    font-size: 3em;
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 0.3em;
+}
+
+.mainContent h1 b {
+    color: var(--darkGrayishRed);
+}
+
+.mainContent p:nth-child(2) {
+    margin: 40px 0;
+    line-height: 1.5em;
+}
+
+form {
+    position: relative;
+}
+
+input[name="email"] {
+    padding: 30px;
+    width: 100%;
+    border-radius: 30px;
+    border: 1px solid var(--inputSecondary);
+    margin-bottom: 10px;
+    height: 50px;
+}
+
+input[name="email"]::placeholder {
+    color: var(--desaturatedRed);
+}
+
+input[name="email"]:focus {
+    box-shadow: 0 0 20px var(--inputSecondary);
+    outline: none;
+}
+
+input[name="email"]:invalid {
+    box-shadow: 0 0 0 2px var(--softRed);
+}
+
+.submit {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 70px;
+    height: 69px;
+    background: var(--submitBackground);
+    border: inherit;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.submit img {
+    width: 15px;
+}
+
+.submit:hover {
+    box-shadow: 0 10px 15px var(--inputSecondary);
+}
+
+.invalid {
+    position: absolute;
+    color: var(--softRed);
+    display: none;
+}
+
+form>img {
+    position: absolute;
+    top: 45%;
+    right: 25%;
+    transform: translate(-25%, -45%);
+    margin-top: 0;
+}
+
+.attribution {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 50px;
+}
+
+@media screen and (min-width: 1024px) {
+    .allGrid {
+        grid-template: auto 1fr / auto auto;
+        min-width: 100%;
+        height: 100vh;
+    }
+    .hero {
+        grid-row: span 2;
+        min-width: 400px;
+    }
+    .hero img {
+        content: url(./images/hero-desktop.jpg);
+        height: 100vh;
+    }
+    header,
+    main {
+        padding: 0 120px;
+        text-align: left;
+    }
+    header img {
+        margin: 50px 0;
+        width: 150px
+    }
+    main {
+        padding-top: 0;
+        display: flex;
+        align-items: center;
+    }
+    .mainContent {
+        margin: 0;
+        max-width: 100%;
+    }
+    .mainContent h1 {
+        font-size: 4em;
+    }
+    .mainContent p {
+        font-size: 1.3em;
+    }
+    .submit {
+        width: 100px;
+    }
+    .attribution {
+        margin: 0;
+    }
+}
